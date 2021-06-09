@@ -61,12 +61,10 @@ public class Auction {
     {
         if((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
             // The number seems to be reasonable.
-//            Lot selectedLot = lots.get(nextLotNumber);
             // Include a confidence check to be sure we have the
             // right lot.
             if(lots.contains(lotNumber)) {
                 System.out.println("Internal error: Lot number " +
-//                        selectedLot.getLotNumber() +
                         " was returned instead of " +
                         lotNumber);
                 // Don't return an invalid lot.

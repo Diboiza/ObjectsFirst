@@ -1,7 +1,5 @@
 package chapterfour.club;
 
-import java.util.ArrayList;
-
 public class AddMembers {
 
     public static void main(String[] args) {

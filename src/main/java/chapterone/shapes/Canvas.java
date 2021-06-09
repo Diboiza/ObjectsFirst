@@ -64,8 +64,8 @@ public class Canvas
         canvas.setPreferredSize(new Dimension(width, height));
         backgroundColor = bgColor;
         frame.pack();
-        objects = new ArrayList<Object>();
-        shapes = new HashMap<Object, ShapeDescription>();
+        objects = new ArrayList<>();
+        shapes = new HashMap<>();
     }
 
     /**
