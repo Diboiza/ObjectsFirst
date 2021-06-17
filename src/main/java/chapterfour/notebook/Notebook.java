@@ -86,11 +86,10 @@ public class Notebook{
      */
 
     public void listAllNotes(){
-        int index = 1;
+
         notes.trimToSize();
-        while (index < notes.size()){
-            System.out.println(index + ": " + notes.get(index));
-            index++;
+        for(String note : notes){
+            System.out.println(notes.indexOf(note) + ": " + note);
         }
     }
 
