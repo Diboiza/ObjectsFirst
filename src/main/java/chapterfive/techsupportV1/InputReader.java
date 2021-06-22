@@ -1,4 +1,4 @@
 package chapterfive.techsupportV1;
 
-public class InputReader {
+public class InputReader{
 }

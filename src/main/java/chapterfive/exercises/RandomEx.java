@@ -7,6 +7,7 @@ public class RandomEx {
 
     private Random random;
 
+
     public RandomEx(){
         random = new Random();
     }
