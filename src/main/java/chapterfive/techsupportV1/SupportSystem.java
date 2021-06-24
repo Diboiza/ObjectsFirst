@@ -1,5 +1,6 @@
 package chapterfive.techsupportV1;
 
+import java.util.HashSet;
 import java.util.Random;
 
 /**
@@ -38,22 +39,19 @@ public class SupportSystem {
         boolean finished = false;
         printWelcome();
 
-        Random random = new Random();
-        random.nextInt();
+        while (!finished){
+            HashSet<String> input = reader.getInput();
 
-//        while (!finished){
-//            String input = reader.getInput().trim().toLowerCase();
-//
-//            if(input.equals("bye")){
-//                finished = true;
-//
-//            }
-//            else{
-//                String response = responder.generateResponse();
-//                System.out.println(response);
-//            }
-//            printGoodbye();
-//        }
+            if(input.contains("bye")){
+                finished = true;
+
+            }
+            else{
+                String response = responder.generateResponse(input);
+                System.out.println(response);
+            }
+            printGoodbye();
+        }
     }
 
     public void printWelcome(){
