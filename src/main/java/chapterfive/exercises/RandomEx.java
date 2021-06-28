@@ -20,7 +20,7 @@ public class RandomEx {
     public void printMultipleRandom(int howMany){
 
         while (howMany > 0){
-            System.out.println("randomNum = " + random.nextInt());
+            System.out.println("randomNum = " + random.nextInt(50));
             howMany--;
         }
     }
