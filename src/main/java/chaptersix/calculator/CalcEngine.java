@@ -37,7 +37,7 @@ public class CalcEngine {
      * a number button was pressed
      * @param number that pressed
      */
-    public void pressedNumber(int number){
+    public void numberPressed(int number){
         displayValue = displayValue * 10 + number;
     }
 
