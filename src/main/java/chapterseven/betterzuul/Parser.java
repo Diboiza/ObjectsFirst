@@ -1,7 +1,6 @@
-package chapterseven.badzuul;
+package chapterseven.betterzuul;
 
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 /**
  * This class is part of the "World of Zuul" application. 
@@ -16,8 +15,8 @@ import java.util.StringTokenizer;
  * the known commands, and if the input is not one of the known commands, it
  * returns a command object that is marked as an unknown command.
  * 
- * @author  Michael Kolling and David J. Barnes
- * @version 2008.03.30
+ * @author  Michael Kölling and David J. Barnes
+ * @version 2016.02.29
  */
 public class Parser 
 {
@@ -64,5 +63,12 @@ public class Parser
         else {
             return new Command(null, word2); 
         }
+    }
+
+    /**
+     * print out a list of valid command words
+     */
+    public void showCommands(){
+        commands.showAll();
     }
 }

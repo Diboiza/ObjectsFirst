@@ -1,4 +1,4 @@
-package chapterseven.badzuul;
+package chapterseven.betterzuul;
 
 /**
  * This class is part of the "World of Zuul" application. 
@@ -15,8 +15,8 @@ package chapterseven.badzuul;
  *
  * If the command had only one word, then the second word is <null>.
  * 
- * @author  Michael Kolling and David J. Barnes
- * @version 2008.03.30
+ * @author  Michael Kölling and David J. Barnes
+ * @version 2016.02.29
  */
 
 public class Command

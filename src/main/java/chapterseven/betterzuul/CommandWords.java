@@ -1,4 +1,4 @@
-package chapterseven.badzuul;
+package chapterseven.betterzuul;
 
 /**
  * This class is part of the "World of Zuul" application. 
@@ -7,15 +7,15 @@ package chapterseven.badzuul;
  * This class holds an enumeration of all command words known to the game.
  * It is used to recognise commands as they are typed in.
  *
- * @author  Michael Kolling and David J. Barnes
- * @version 2008.03.30
+ * @author  Michael Kölling and David J. Barnes
+ * @version 2016.02.29
  */
 
 public class CommandWords
 {
     // a constant array that holds all valid command words
     private static final String[] validCommands = {
-        "go", "quit", "help"
+        "go", "quit", "help", "look"
     };
 
     /**
@@ -39,5 +39,15 @@ public class CommandWords
         }
         // if we get here, the string was not found in the commands
         return false;
+    }
+
+    /**
+     * print all valid commands to sout
+     */
+    public void showAll(){
+        for(String command: validCommands){
+            System.out.println(command + " ");
+        }
+        System.out.println();
     }
 }

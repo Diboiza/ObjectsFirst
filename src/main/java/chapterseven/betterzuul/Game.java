@@ -1,4 +1,4 @@
-package chapterseven.badzuul;
+package chapterseven.betterzuul;
 
 /**
  *  This class is the main class of the "World of Zuul" application. 
@@ -13,8 +13,8 @@ package chapterseven.badzuul;
  *  rooms, creates the parser and starts the game.  It also evaluates and
  *  executes the commands that the parser returns.
  * 
- * @author  Michael Kolling and David J. Barnes
- * @version 2008.03.30
+ * @author  Michael Kölling and David J. Barnes
+ * @version 2016.02.29
  */
 
 public class Game 
@@ -36,28 +36,23 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office, cellar;
+        Room outside, theater, pub, lab, office, cellar;
       
         // create the rooms
         outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
+        theater = new Room("in a lecture theater");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
         cellar = new Room("in the cellar");
         
         // initialise room exits
-
-        outside.setExits("east",theatre);
-        outside.setExits("south", lab);
-        outside.setExits("west", pub);
-        theatre.setExits("west", outside);
-        pub.setExits("east", outside);
-        lab.setExits("north",outside);
-        lab.setExits("east", office);
-        office.setExits("west", lab);
-        office.setExits("down", cellar);
-        cellar.setExits("up", office);
+        outside.setExits("north", theater);
+        theater.setExits("east",  outside);
+        pub.setExits("west", outside);
+        lab.setExits("south", office);
+        office.setExits("west",  lab);
+        cellar.setExits("moveUp", theater);
 
         currentRoom = outside;  // start game outside
     }
@@ -108,12 +103,18 @@ public class Game
         }
 
         String commandWord = command.getCommandWord();
-        if (commandWord.equals("help"))
+        if (commandWord.equals("help")) {
             printHelp();
-        else if (commandWord.equals("go"))
+        }
+        else if (commandWord.equals("go")) {
             goRoom(command);
-        else if (commandWord.equals("quit"))
+        }
+        else if(commandWord.equals("look")){
+            look();
+        }
+        else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
+        }
 
         return wantToQuit;
     }
@@ -131,11 +132,15 @@ public class Game
         System.out.println("around at the university.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+        parser.showCommands();
+    }
+
+    private void look(){
+        System.out.println(currentRoom.getLongDescription());
     }
 
     /** 
-     * Try to go to one direction. If there is an exit, enter
+     * Try to go in one direction. If there is an exit, enter
      * the new room, otherwise print an error message.
      */
     private void goRoom(Command command) 
@@ -150,18 +155,17 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
-            currentRoom = nextRoom;
-            printLocationInfo();
+
+        currentRoom = nextRoom;
+        printLocationInfo();
+
     }
 
     /**
-     * print the current location that player is at.
+     * Print the current locationInfo of the player.
      */
     public void printLocationInfo(){
-        System.out.println("You are " + currentRoom.getDescription());
-        System.out.print("Exits: ");
-
-        System.out.println(currentRoom.getExitString());
+        System.out.println(currentRoom.getLongDescription());
     }
 
     /** 

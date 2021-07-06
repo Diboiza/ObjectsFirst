@@ -1,4 +1,4 @@
-package chapterseven.badzuul;
+package chapterseven.betterzuul;
 
 public class GameTest {
 
