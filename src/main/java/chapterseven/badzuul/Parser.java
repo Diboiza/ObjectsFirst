@@ -64,5 +64,13 @@ public class Parser
         else {
             return new Command(null, word2); 
         }
+
+    }
+
+    /**
+     * print out a list of valid command words
+     */
+    public void showCommands(){
+        System.out.println(commands.showAll());
     }
 }

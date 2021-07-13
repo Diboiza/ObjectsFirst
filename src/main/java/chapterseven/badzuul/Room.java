@@ -1,5 +1,6 @@
 package chapterseven.badzuul;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
+    private ArrayList<Item> items;
 
     /**
      * Create a room described "description". Initially, it has
@@ -32,6 +34,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<>();
+        items = new ArrayList<>();
     }
 
     /**
@@ -59,11 +62,43 @@ public class Room
     }
 
     /**
+     * add a items to the room.
+     * @param item to be added to the room
+     */
+
+    public void addItem(Item item){
+        items.add(item);
+    }
+
+    /**
+     * Display all the items that are in the room
+     * @return a list of all items in the room
+     */
+
+    private String getAllItems(){
+        StringBuilder bld = new StringBuilder();
+        for (Item item: items) {
+            bld.append("\n ").append(item.getItemDetails());
+        }
+        return bld.toString();
+    }
+
+    /**
      * @return The description of the room.
      */
     public String getDescription()
     {
         return description;
+    }
+
+    /**
+     * Return a long description of this room, of the form:
+     * You are in the kitchen.
+     * Exits: north west
+     * @return A description of the room including the exits
+     */
+    public String getLongDescription(){
+        return "You are " + description + ".\n" + getExitString() + ".\nItems:" + getAllItems();
     }
 
 }

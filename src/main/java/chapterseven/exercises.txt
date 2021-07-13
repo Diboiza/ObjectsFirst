@@ -4,3 +4,18 @@ Answer: it is a text based game that allows you to send commands to it.
 7.1.3 what does each command do: it directs the player to move in a certain direction, it shows the help menu and it quits the game
 7.1.4 how many rooms are in the scenario: 4
 7.1.5 draw a map of the existing rooms
+
+7.9 lookup the keyset method of in the documentation of the HashMap.
+Answer: the keyset method returns a set of keys in the hashMap, remember a set stores only one item and no duplicates of that item.
+
+7.10 Explain in detail and writing how the below unit of code works:
+public String getExitString(){
+        String returnString = "Exits:";
+        Set<String> keys = exits.keySet();
+        for (String key: keys) {
+            returnString += " " + key;
+        }
+        return returnString;
+    }
+Answer: The methods first declares a String, then it declares a Set of Strings from the keyset of our hashmap.
+It then iterates over the whole set and concatenates each to the declared String, once done it returns the string.

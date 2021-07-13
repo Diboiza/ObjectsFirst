@@ -89,8 +89,5 @@ public class Room
         return "You are " + description + ".\n" + getExitString();
     }
 
-    public void addItem(Item item){
-
-    }
 
 }
