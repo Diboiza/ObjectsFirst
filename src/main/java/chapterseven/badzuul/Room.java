@@ -84,6 +84,15 @@ public class Room
     }
 
     /**
+     * Get a list if all items in the current room
+     * @return A list of all items in a room
+     */
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+
+    /**
      * @return The description of the room.
      */
     public String getDescription()

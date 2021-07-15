@@ -43,12 +43,20 @@ public class Player {
      * @param item picked up
      */
     public void take(Item item){
-        pickedItems.add(item);
+        if(currentRoom.getItems().contains(item))
+        {
+            int index = currentRoom.getItems().indexOf(item);
+            pickedItems.add(currentRoom.getItems().get(index));
+            currentRoom.getItems().remove(index);
+        }
+        else {
+            System.out.println("The specified item is not in the room");
+        }
     }
 
     public void drop(Item item){
        if(pickedItems.contains(item)){
-           pickedItems.remove(item);
+         pickedItems.remove(item);
        }
        else {
            System.out.println("You did not pick up that item");

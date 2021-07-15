@@ -129,7 +129,6 @@ public class Game {
         return wantToQuit;
     }
 
-    // implementations of user commands:
 
     /**
      * Print out some help information.
