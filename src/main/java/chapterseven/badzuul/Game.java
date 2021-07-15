@@ -107,25 +107,16 @@ public class Game {
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
-        if (command.isUnknown()) {
-            System.out.println("I don't know what you mean...");
-            return false;
+        CommandWord commandWord = command.getCommandWord();
+        switch (commandWord)
+        {
+            case UNKNOWN -> printHelp();
+            case GO -> goRoom(command);
+            case BACK -> back();
+            case LOOK -> look();
+            case EAT -> eat();
+            case QUIT -> wantToQuit = quit(command);
         }
-
-        String commandWord = command.getCommandWord();
-        if (commandWord.equals("help"))
-            printHelp();
-        else if (commandWord.equals("go"))
-            goRoom(command);
-        else if (commandWord.contains("back"))
-                back();
-        else if (commandWord.equals("look"))
-            look();
-        else if (commandWord.equals("eat"))
-            eat();
-        else if (commandWord.equals("quit"))
-            wantToQuit = quit(command);
-
         return wantToQuit;
     }
 

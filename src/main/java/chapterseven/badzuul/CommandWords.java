@@ -1,5 +1,7 @@
 package chapterseven.badzuul;
 
+import java.util.HashMap;
+
 /**
  * This class is part of the "World of Zuul" application. 
  * "World of Zuul" is a very simple, text based adventure game.  
@@ -13,17 +15,22 @@ package chapterseven.badzuul;
 
 public class CommandWords
 {
-    // a constant array that holds all valid command words
-    private static final String[] validCommands = {
-        "go", "back", "quit", "help", "look", "eat", "take", "drop"
-    };
+
+    // a constant hashmap that holds all valid command words
+    private HashMap<String, CommandWord> validCommands;
+
 
     /**
      * Constructor - initialise the command words.
      */
     public CommandWords()
     {
-        // nothing to do at the moment...
+        validCommands = new HashMap<>();
+        for (CommandWord command: CommandWord.values()) {
+            if(command != CommandWord.UNKNOWN){
+                validCommands.put(command.toString(), command);
+            }
+        }
     }
 
     /**
@@ -31,20 +38,25 @@ public class CommandWords
      * @return true if a given string is a valid command,
      * false if it isn't.
      */
-    public boolean isCommand(String aString)
+    public CommandWord getCommandWord(String commandWord)
     {
-        for(int i = 0; i < validCommands.length; i++) {
-            if(validCommands[i].equals(aString))
-                return true;
+        CommandWord command = validCommands.get(commandWord);
+        if(command != null){
+            return command;
         }
-        // if we get here, the string was not found in the commands
-        return false;
+        else {
+            return CommandWord.UNKNOWN;
+        }
+    }
+
+    public boolean isCommand(String aString){
+        return validCommands.containsKey(aString);
     }
 
     public String showAll(){
         StringBuilder bld = new StringBuilder();
 
-        for (String command: validCommands) {
+        for (String command: validCommands.keySet()) {
             bld.append(command + " ");
         }
         return bld.toString();
