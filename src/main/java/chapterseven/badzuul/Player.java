@@ -1,7 +1,6 @@
 package chapterseven.badzuul;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class describes the player that will be in the game,
