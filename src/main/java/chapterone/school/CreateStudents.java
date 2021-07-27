@@ -3,9 +3,9 @@ package chapterone.school;
 public class CreateStudents {
 
     public static void main(String[] args) {
-        Student steven = new Student("Ste", "ST");
-        Student maria = new Student("Maria", "ST130");
-        Student jabulani = new Student("jabulani", "ST129");
+        Student steven = new Student("Ste", 12345,"New student", 45, "ST123");
+        Student maria = new Student("Maria", 12345,"New student", 45,"ST123");
+        Student jabulani = new Student("jabulani", 12345,"New student", 45, "ST123");
 
         LabClass labClass = new LabClass(4);
 

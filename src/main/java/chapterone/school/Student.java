@@ -4,49 +4,68 @@ package chapterone.school;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Student {
+/**
+ * class Student which models the students in a class
+ * @author: Bongani Maphiri
+ */
+public class Student extends  Person {
 
     private final Logger logger = LoggerFactory.getLogger("StudentLogger");
-    private String name;
-    private String id;
+
     private int credits;
+    private String id;
 
-    public Student(String name, String id){
-
+    /**
+     * Initialize the fields of a student
+     * @param name of a student
+     * @param contact of a student
+     * @param details of a student
+     * @param credits of a student
+     * @param id of a student
+     */
+    public Student(String name, int contact, String details, int credits, String id) {
+        super(name, contact, details);
         if(name.length() < 4 && id.length() < 3){
             logger.warn("The length of the Name or ID is too short");
         }
-        this.name = name;
         this.id = id;
         credits = 0;
     }
 
-    public String getName(){
-        return name;
-    }
-
-    public void changeName(String newName){
-        name = newName;
-    }
-
+    /**
+     *
+     * @return the student ID
+     */
     public String getStudentID(){
         return id;
     }
 
+    /**
+     *
+     * @param additionalCredits to be rewarded to a student
+     */
     public void addCredits(int additionalCredits){
         credits += additionalCredits;
     }
 
+    /**
+     *
+     * @return students total number of credits
+     */
     public int getCredits(){
         return credits;
     }
 
+    /**
+     *
+     * @return student login details
+     */
     public String getLoginName(){
-        return name + id;
+        return getName() + id;
     }
 
     public void printStudentDetails(){
-        String studentDetails = String.format("%s Student ID: %s Credits: %s" ,name,id,credits);
+        String studentDetails = String.format("%s Student ID: %s Credits: %s" ,getName(),id,credits);
         logger.info(studentDetails);
     }
 }
