@@ -64,8 +64,5 @@ public class Student extends  Person {
         return getName() + id;
     }
 
-    public void printStudentDetails(){
-        String studentDetails = String.format("%s Student ID: %s Credits: %s" ,getName(),id,credits);
-        logger.info(studentDetails);
-    }
+
 }

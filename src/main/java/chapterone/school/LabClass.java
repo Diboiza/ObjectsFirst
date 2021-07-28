@@ -12,14 +12,13 @@ public class LabClass {
     private final Logger logger = LoggerFactory.getLogger("LabClassLogger");
 
     String unknown = "unknown";
-    private String instructor;
+    private Instructor instructor;
     private String room;
     private String dayTime;
     private List<Student> students;
     private int capacity;
 
     public LabClass(int maxNumberOfStudents){
-        instructor = unknown;
         room = unknown;
         dayTime = unknown;
         students = new ArrayList<>();
@@ -47,14 +46,14 @@ public class LabClass {
         dayTime = dayTimeString;
     }
 
-    public void setInstructor(String newInstructor){
+    public void setInstructor(Instructor newInstructor){
         instructor = newInstructor;
     }
 
     public void printList(){
 
         logger.info(MessageFormat.format("LabClass: {0}", dayTime));
-        logger.info(String.format("Instructor: %s Room: %s", instructor, room));
+        logger.info(String.format("Instructor: %s Room: %s", instructor.getName(), room));
         logger.info( "Class List:");
 
         for(Student student : students){

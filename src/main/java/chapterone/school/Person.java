@@ -71,4 +71,8 @@ public class Person {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    public String printStudentDetails(){
+       return String.format("%s Student ID: %s Credits: %s" ,getName(),getContact(),getDetails());
+    }
 }
