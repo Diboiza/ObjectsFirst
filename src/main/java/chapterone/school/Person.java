@@ -72,7 +72,7 @@ public class Person {
         this.details = details;
     }
 
-    public String printStudentDetails(){
+    public String printDetails(){
        return String.format("%s Student ID: %s Credits: %s" ,getName(),getContact(),getDetails());
     }
 }

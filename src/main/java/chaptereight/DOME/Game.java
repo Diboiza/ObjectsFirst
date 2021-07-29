@@ -24,4 +24,20 @@ public class Game extends Item {
     public int getNoOfPlayers() {
         return noOfPlayers;
     }
+
+    /**
+     *
+     * @return overridden string of this class
+     */
+    public String toString(){
+        return super.toString() + "\n        No of players: " + noOfPlayers + "\n";
+
+    }
+
+    /**
+     * print information about this item
+     */
+    public void print() {
+        System.out.println(this);
+    }
 }

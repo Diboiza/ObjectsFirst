@@ -47,6 +47,14 @@ public class Item {
     }
 
     /**
+     *
+     * @return the playing time of the item
+     */
+    public int getPlayingTime() {
+        return playingTime;
+    }
+
+    /**
      * make a comment about this item
      * @param comment made
      */
@@ -63,18 +71,25 @@ public class Item {
     }
 
     /**
-     * print information about this item
+     *
+     * @return the overridden toString method of this class
      */
-    public void print(){
-        System.out.println(title + "(+" +
-                "" + playingTime +
-                " mins)");
+    public String toString(){
+        String line1 = title + " (" + playingTime + " mins)";
         if(ownIt){
-            System.out.println("Own it: Yes");
+            return  line1 + "\n Own it: Yes " + "\n Comment: " + comment + "\n";
         }
         else {
-            System.out.println("Own it: No");
+            return  line1 + "\n Own it: No "  + "\n Comment: " + comment + "\n";
         }
-        System.out.println("     " + comment);
     }
+
+    /**
+     * The toString method of this class
+     */
+    public void print(){
+        System.out.println(this);
+    }
+
+
 }

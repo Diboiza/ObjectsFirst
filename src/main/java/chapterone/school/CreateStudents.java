@@ -15,9 +15,9 @@ public class CreateStudents {
         jabulani.addCredits(119);
         System.out.println(steven.getLoginName());
 
-        steven.printStudentDetails();
-        maria.printStudentDetails();
-        jabulani.printStudentDetails();
+        steven.printDetails();
+        maria.printDetails();
+        jabulani.printDetails();
 
         labClass.enrollStudent(steven);
         labClass.enrollStudent(maria);

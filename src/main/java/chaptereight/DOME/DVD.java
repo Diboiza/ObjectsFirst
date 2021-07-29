@@ -13,7 +13,26 @@ public class DVD extends Item{
         this.director = director;
     }
 
+    /**
+     *
+     * @return the director details
+     */
     public String getDirector() {
         return director;
+    }
+
+    /**
+     *
+     * @return overridden string of this class
+     */
+    public String toString(){
+       return super.toString() + "\n        Director: " + director + "\n";
+    }
+
+    /**
+     * print information about this item
+     */
+    public void print(){
+        System.out.println(this);
     }
 }

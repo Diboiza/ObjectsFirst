@@ -28,8 +28,7 @@ public class Database {
 
     public void list(){
         for (Item item: items) {
-            item.print();
-            System.out.println();
+            System.out.println(item);
         }
     }
 }

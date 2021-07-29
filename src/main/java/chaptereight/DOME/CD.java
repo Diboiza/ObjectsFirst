@@ -15,15 +15,43 @@ public class CD extends Item {
         this.noOfTracks = noOfTracks;
     }
 
+    /**
+     *
+     * @return the artist name
+     */
     public String getArtist() {
         return artist;
     }
 
+    /**
+     *
+     * @return the nu,ber of tracks in the CD
+     */
     public int getNoOfTracks() {
         return noOfTracks;
     }
 
+    /**
+     * print shortDetails about the zCD
+     */
     public void printShortDetails(){
         System.out.println("Artist: " + artist + "\n Title: " + getTitle());
+    }
+
+    /**
+     *
+     * @return overridden string of this class
+     */
+    public String toString(){
+        return super.toString() + "    " + artist +
+                "\n        tracks: " + noOfTracks + "\n";
+    }
+
+
+    /**
+     * print information about this item
+     */
+    public void print(){
+        System.out.println(this);
     }
 }

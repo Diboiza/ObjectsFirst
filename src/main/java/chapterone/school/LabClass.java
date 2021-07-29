@@ -57,7 +57,7 @@ public class LabClass {
         logger.info( "Class List:");
 
         for(Student student : students){
-            student.printStudentDetails();
+            student.printDetails();
         }
         logger.info(String.format("Number of students: %s", numberOfStudents()));
     }
