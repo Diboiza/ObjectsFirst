@@ -37,9 +37,10 @@ public class Game {
      * Create all the rooms and link their exits together.
      */
     private void createRooms() {
-        Room outside, theatre, pub, lab, office, cellar;
+        Room outside, theatre, pub, lab, office, cellar, trapDoor;
         Item theatreEntrance = new Item("Theatre", "Unknown");
         Item trees = new Item("Multiple Trees", "unknown");
+        Item beam = new Item("Beams you to any room", "5kg");
         // create the rooms
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
@@ -47,6 +48,7 @@ public class Game {
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
         cellar = new Room("in the cellar");
+        trapDoor = new Room("trap door with no exits");
 
         // initialise room exits
 
@@ -60,10 +62,13 @@ public class Game {
         office.setExits("west", lab);
         office.setExits("down", cellar);
         cellar.setExits("up", office);
+        cellar.setExits("down", trapDoor);
+        trapDoor.setExits("up", trapDoor);
 
         //Add items to a room
         outside.addItem(theatreEntrance);
         outside.addItem(trees);
+        trapDoor.addItem(beam);
 
         player.setCurrentRoom(outside);  // start game outside
         previousRoom = new Stack<>();
