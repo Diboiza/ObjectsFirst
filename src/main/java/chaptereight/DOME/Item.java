@@ -75,7 +75,7 @@ public class Item {
      * @return the overridden toString method of this class
      */
     public String toString(){
-        String line1 = title + " (" + playingTime + " mins)";
+        String line1 = " " + title +  " (" + playingTime + " mins)";
         if(ownIt){
             return  line1 + "\n Own it: Yes " + "\n Comment: " + comment + "\n";
         }
@@ -87,7 +87,7 @@ public class Item {
     /**
      * The toString method of this class
      */
-    public void print(){
+    protected void print(){
         System.out.println(this);
     }
 

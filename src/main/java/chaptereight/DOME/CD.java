@@ -43,7 +43,7 @@ public class CD extends Item {
      * @return overridden string of this class
      */
     public String toString(){
-        return super.toString() + "    " + artist +
+        return "CD: " + artist + super.toString()   +
                 "\n        tracks: " + noOfTracks + "\n";
     }
 
@@ -51,7 +51,8 @@ public class CD extends Item {
     /**
      * print information about this item
      */
-    public void print(){
-        System.out.println(this);
+    @Override
+    protected void print() {
+        super.print();
     }
 }
