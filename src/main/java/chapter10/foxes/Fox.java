@@ -31,8 +31,6 @@ public class Fox extends Animal
     
     // Individual characteristics (instance fields).
     private int foodLevel;
-    // The Animal's age.
-    private int age;
 
     /**
      * Create a fox. A fox can be created as a new born (age zero
@@ -46,7 +44,7 @@ public class Fox extends Animal
     {
         super(field,location);
         if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
+            setAge(rand.nextInt(MAX_AGE));
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
         }
         else {
@@ -84,17 +82,6 @@ public class Fox extends Animal
         }
     }
 
-    /**
-     * Increase the age. This could result in the fox's death.
-     */
-    private void incrementAge()
-    {
-        age++;
-        if(age > MAX_AGE) {
-            setDead();
-        }
-    }
-    
     /**
      * Make this fox more hungry. This could result in the fox's death.
      */
@@ -153,7 +140,7 @@ public class Fox extends Animal
      * if it can breed.
      * @return The number of births (may be zero).
      */
-    private int breed()
+    public int breed()
     {
         int births = 0;
         if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
@@ -165,11 +152,13 @@ public class Fox extends Animal
     /**
      * A fox can breed if it has reached the breeding age.
      */
-    private boolean canBreed()
-    {
-        return age >= BREEDING_AGE;
+    public int getBreedingAge(){
+        return BREEDING_AGE;
     }
 
+    public int getMaxAge(){
+        return MAX_AGE;
+    }
 
     @Override
     public void act(List<Animal> newAnimal) {

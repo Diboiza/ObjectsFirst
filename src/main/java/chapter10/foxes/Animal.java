@@ -53,6 +53,25 @@ public abstract class Animal {
         return location;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    /**
+     * Increase the age. This could result in the fox's death.
+     */
+    public void incrementAge()
+    {
+        age++;
+        if(age > getMaxAge()) {
+            setDead();
+        }
+    }
+
     /**
      * Place the rabbit at the new location in the given field.
      * @param newLocation The rabbit's new location.
@@ -70,6 +89,23 @@ public abstract class Animal {
         return field;
     }
 
+    /**
+     * A rabbit can breed if it has reached the breeding age.
+     * @return true if the rabbit can breed, false otherwise.
+     */
+    public boolean canBreed() {
+        return age >= getBreedingAge();
+    }
+
+    /**
+    *Return the breeding age for this animal
+     */
+    abstract protected int getBreedingAge();
+
+    abstract protected int breed();
+
+
+    abstract protected int getMaxAge();
 
      abstract public void act(List<Animal> newAnimal);
 }

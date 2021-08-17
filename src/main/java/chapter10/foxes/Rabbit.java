@@ -26,9 +26,6 @@ public class Rabbit extends Animal
     private static final Random rand = Randomizer.getRandom();
     
     // Individual characteristics (instance fields).
-    
-    // The rabbit's age.
-    private int age;
 
 
     /**
@@ -44,7 +41,7 @@ public class Rabbit extends Animal
        super(field, location);
         setLocation(location);
         if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
+            setAge(rand.nextInt(MAX_AGE));
         }
     }
     
@@ -70,21 +67,6 @@ public class Rabbit extends Animal
         }
     }
     
-
-
-
-    /**
-     * Increase the age.
-     * This could result in the rabbit's death.
-     */
-    private void incrementAge()
-    {
-        age++;
-        if(age > MAX_AGE) {
-            setDead();
-        }
-    }
-    
     /**
      * Check whether or not this rabbit is to give birth at this step.
      * New births will be made into free adjacent locations.
@@ -102,13 +84,13 @@ public class Rabbit extends Animal
             newRabbits.add(young);
         }
     }
-        
+
     /**
      * Generate a number representing the number of births,
      * if it can breed.
      * @return The number of births (may be zero).
      */
-    private int breed()
+    public int breed()
     {
         int births = 0;
         if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
@@ -117,13 +99,16 @@ public class Rabbit extends Animal
         return births;
     }
 
+    public int getMaxAge(){
+        return MAX_AGE;
+    }
+
     /**
-     * A rabbit can breed if it has reached the breeding age.
-     * @return true if the rabbit can breed, false otherwise.
+     *return the age at which rabbits can start breeding
+     * @
      */
-    private boolean canBreed()
-    {
-        return age >= BREEDING_AGE;
+    public int getBreedingAge(){
+        return BREEDING_AGE;
     }
 
     @Override
