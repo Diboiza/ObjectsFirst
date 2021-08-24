@@ -50,7 +50,7 @@ public class Rabbit extends Animal
      * around. Sometimes it will breed or die of old age.
      * @param newRabbits A list to return newly born rabbits.
      */
-    public void run(List<Animal> newRabbits)
+    public void run(List<Actor> newRabbits)
     {
         incrementAge();
         if(isAlive()) {
@@ -112,7 +112,7 @@ public class Rabbit extends Animal
     }
 
     @Override
-    public void act(List<Animal> newRabbits) {
+    public void act(List<Actor> newRabbits) {
        this.run(newRabbits);
     }
 }

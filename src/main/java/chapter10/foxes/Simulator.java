@@ -70,20 +70,20 @@ public class Simulator extends PopulationGenerator
         step++;
 
         // Provide space for newborn rabbits.
-        List<Animal> newAnimals = new ArrayList<>();
+        List<Actor> newActors = new ArrayList<>();
         // Let all rabbits act.
-        for(Iterator<Animal> it = getAnimals().iterator(); it.hasNext(); ) {
-            Animal animal = it.next();
-            animal.act(newAnimals);
+        for(Iterator<Actor> it = getAnimals().iterator(); it.hasNext(); ) {
+            Actor actor = it.next();
+            actor.act(newActors);
             //remove dead animals from the simulation
-            if(! animal.isAlive()) {
+            if(! actor.isAlive()) {
                 it.remove();
             }
 
         }
 
         // Add the newly born foxes and rabbits to the main lists.
-        getAnimals().addAll(newAnimals);
+        getAnimals().addAll(newActors);
 
         getView().showStatus(step, getField());
     }

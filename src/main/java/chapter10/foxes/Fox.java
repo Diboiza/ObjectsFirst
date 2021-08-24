@@ -59,12 +59,13 @@ public class Fox extends Animal
      * or die of old age.
      * @param newFoxes A list to return newly born foxes.
      */
-    public void hunt(List<Animal> newFoxes)
+    public void hunt(List<Actor> newFoxes)
     {
         incrementAge();
         incrementHunger();
         if(isAlive()) {
-            giveBirth(newFoxes);            
+            giveBirth(
+                    newFoxes);
             // Move towards a source of food if found.
             Location newLocation = findFood();
             if(newLocation == null) { 
@@ -122,7 +123,7 @@ public class Fox extends Animal
      * New births will be made into free adjacent locations.
      * @param newFoxes A list to return newly born foxes.
      */
-    private void giveBirth(List<Animal> newFoxes)
+    private void giveBirth(List<Actor> newFoxes)
     {
         // New foxes are born into adjacent locations.
         // Get a list of adjacent free locations.
@@ -161,7 +162,7 @@ public class Fox extends Animal
     }
 
     @Override
-    public void act(List<Animal> newAnimal) {
+    public void act(List<Actor> newAnimal) {
         this.hunt(newAnimal);
     }
 }

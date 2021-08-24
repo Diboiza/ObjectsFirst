@@ -2,7 +2,7 @@ package chapter10.foxes;
 
 import java.util.List;
 
-public abstract class Animal {
+public abstract class Animal implements Actor {
 
     // The Animal's age.
     private int age;
@@ -107,5 +107,5 @@ public abstract class Animal {
 
     abstract protected int getMaxAge();
 
-     abstract public void act(List<Animal> newAnimal);
+//     abstract public void act(List<Animal> newAnimal);
 }

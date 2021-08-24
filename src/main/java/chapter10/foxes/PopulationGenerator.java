@@ -17,12 +17,12 @@ public class PopulationGenerator {
     // The probability that a rabbit will be created in any given position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.08;
     // Lists of animals in the field.
-    private List<Animal> animals;
+    private List<Actor> animals;
     // The current step of the simulation.
     private int step;
 
     // A graphical view of the simulation.
-    private SimulatorView view;
+    private AnimatedView view;
 
     public PopulationGenerator(){
         this(DEFAULT_DEPTH, DEFAULT_WIDTH);
@@ -40,7 +40,7 @@ public class PopulationGenerator {
         field = new Field(depth, width);
 
         // Create a view of the state of each location in the field.
-        view = new SimulatorView(depth, width);
+        view = new AnimatedView(depth, width);
         view.setColor(Rabbit.class, Color.ORANGE);
         view.setColor(Fox.class, Color.BLUE);
 
@@ -53,11 +53,11 @@ public class PopulationGenerator {
         return field;
     }
 
-    public SimulatorView getView() {
+    public AnimatedView getView() {
         return view;
     }
 
-    public List<Animal> getAnimals() {
+    public List<Actor> getAnimals() {
         return animals;
     }
 
